@@ -72,7 +72,21 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 # Setup The Project
     - npx create-react-app
-    - configure tailwind
+    - configure tailwindCSS
+    - Header
+    - Routing of App
+    - Login Form
+    - Sign up Form
+    - Form Validation
+    - useRef Hook
+    - Firebase Setup
+    - Deploying our app to production
+    - Create SignUp User Account
+    - Implement Sign In user API
+    - Created Redux Store With userSlice
+    - Implement Sign Out 
+    - Update Profile
+    - Fetch Movies
 
 # Project Feature Planning
     - Login/Sign Up Page
