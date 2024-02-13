@@ -28,18 +28,15 @@ const MovieList = ({ title, movies }) => {
   };
 
   const handleScroll = (e) => {
-    console.log(e);
-    // if(e.wheelDelta > 0){
-    //   itemRef.current.scrollLeft -=50;
-    // } else {
-    //   itemRef.current.scrollLeft +=50;
-    // }
+    // console.log(e);
   };
 
   return (
     movies && (
+      <div className="">
+        <h1 className="text-3xl py-4 ">{title}</h1>
         <div
-          className="px-6 overflow-y-hidden scrollbar-thin scrollbar-webkit"
+          className="flex px-6 overflow-y-hidden scrollbar-thin scrollbar-webkit"
           ref={itemRef}
           onMouseDown={handleMouseDown}
           onMouseLeave={handleMouseLeave}
@@ -47,18 +44,13 @@ const MovieList = ({ title, movies }) => {
           onMouseMove={handleMouseMove}
           onScroll={handleScroll}
         >
-          <h1 className="text-3xl py-4 ">{title}</h1>
-          <div className="flex">
-            {movies.map((movie) => (
-              <div key={movie.id} className="w-48">
-                <MovieCard
-                  title={"Now Playing"}
-                  posterPath={movie.poster_path}
-                />
-              </div>
-            ))}
-          </div>
+          {movies.map((movie) => (
+            <div key={movie.id} className="w-48">
+              <MovieCard title={title} posterPath={movie.poster_path} />
+            </div>
+          ))}
         </div>
+      </div>
     )
   );
 };
