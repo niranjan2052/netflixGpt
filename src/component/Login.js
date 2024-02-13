@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { checkValidData } from "../utils/validate";
+import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -9,11 +10,13 @@ import { auth } from "../utils/firebase";
 import Header from "./Header";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import { MY_AVATAR } from "../utils/constants";
+import { BG_URL, MY_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [isSignin, setIsSignin] = useState(true);
   const [errorMessage, setErrorMessage] = useState();
+  const [showPassword, setShowPassword] = useState(false);
+  const [inputType, setInputType] = useState("password");
   const dispatch = useDispatch();
 
   const fullName = useRef("Default");
@@ -25,7 +28,7 @@ const Login = () => {
 
   const handleSubmit = () => {
     const errorMessage = checkValidData(
-      fullName.current.value,
+      fullName.current?.value,
       email.current.value,
       password.current.value
     );
@@ -90,14 +93,18 @@ const Login = () => {
     }
   };
 
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+    inputType === "password" ? setInputType("text") : setInputType("password");
+  };
+  const eyeIconStyle = {
+    fontSize: "1.8em",
+  };
+
   return (
     <div className="max-sm:overflow-hidden">
       <Header />
-      <img
-        className="max-md:max-w-none "
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/4da5d2b1-1b22-498d-90c0-4d86701dffcc/6b98821e-5cd5-4929-8212-723d7e11ffc3/NP-en-20240129-popsignuptwoweeks-perspective_alpha_website_small.jpg"
-        alt="bg-img"
-      />
+      <img className="max-md:max-w-none " src={BG_URL} alt="bg-img" />
 
       <form
         onSubmit={(e) => e.preventDefault()}
@@ -125,19 +132,28 @@ const Login = () => {
             id="email"
             placeholder="Email or phone number"
           />
-          <input
-            className="my-2 p-4 w-full bg-transparent border rounded"
-            ref={password}
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-          />
-          <p className="text-[#e40814] font-semibold drop-shadow-2xl shadow-white">
+          <div className="flex items-center border rounded">
+            <input
+              className=" p-4 w-full bg-transparent focus:border-none"
+              ref={password}
+              type={inputType}
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+            <div className="mx-2 cursor-pointer" onClick={handleShowPassword}>
+              {showPassword ? (
+                <EyeInvisibleOutlined style={eyeIconStyle} />
+              ) : (
+                <EyeOutlined style={eyeIconStyle} />
+              )}
+            </div>
+          </div>
+          <p className="text-netflixColor font-semibold drop-shadow-2xl shadow-white">
             {errorMessage}
           </p>
           <button
-            className="my-2 p-2 w-full bg-[#e40814] font-semibold rounded hover:bg-[#c11119]"
+            className="my-2 p-2 w-full bg-netflixColor font-semibold rounded hover:bg-[#c11119]"
             onClick={handleSubmit}
             type="submit"
           >
