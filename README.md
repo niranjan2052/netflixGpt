@@ -100,6 +100,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     - Update Store with Trailer Video Data
     - Embedded the YouTube Video and make it auto play and Mute.
     - Added Tailwind CSS to make it look good
+    - Build Seccondary Component
+    - Build Movie List
+    - Build Moive Card
+    - TMDB Image CDN URL
+    - Made the Browser page good using Tailwind CSS
+    - usePopularMovie and other Custome Hooks
+    
 
 # Project Feature Planning
     - Login/Sign Up Page
