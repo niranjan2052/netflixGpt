@@ -1,7 +1,11 @@
 import React from "react";
 import { BG_URL } from "../utils/constants";
 import { SearchOutlined } from "@ant-design/icons";
+import lang from "../utils/languageConstants";
+import { useSelector } from "react-redux";
+
 const GptSearchBar = () => {
+  const langIdentifier = useSelector((store) => store?.config?.lang);
   return (
     <div>
       <img
@@ -19,7 +23,7 @@ const GptSearchBar = () => {
             className="p-4 m-4 col-span-9"
             name="gptSearchBar"
             id="gptSearchBar"
-            placeholder="Search"
+            placeholder={lang[langIdentifier].searchBoxPlaceholder}
           />
           <button className="bg-netflixColor col-span-3 text-white m-4 px-4 py-2 rounded-lg">
             <SearchOutlined
@@ -27,7 +31,7 @@ const GptSearchBar = () => {
                 fontSize: "1.5em",
               }}
             />
-            Search
+            {lang[langIdentifier].search}
           </button>
         </form>
       </div>

@@ -1,19 +1,21 @@
 import { signOut } from "firebase/auth";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
-import { LOGO_URL, USER_AVATAR } from "../utils/constants";
-import { toggleButtonName, toggleshowGptPage } from "../utils/gptSlice";
+import { LOGO_URL, SUPPORTED_LANG, USER_AVATAR } from "../utils/constants";
+import { toggleshowGptPage } from "../utils/gptSlice";
+import { toggleLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store?.user);
-  const buttonName = useSelector((store) => store?.gpt?.buttonName);
+  const showGptPage = useSelector((store) => store?.gpt?.showGptPage);
+  const langSelect = useRef(null);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -52,8 +54,12 @@ const Header = () => {
 
   const handleGptSearchClick = () => {
     dispatch(toggleshowGptPage());
-    dispatch(toggleButtonName());
   };
+
+  const handleLanguage = () => {
+    dispatch(toggleLanguage(langSelect.current.value));
+  };
+
   return (
     <div className="flex justify-between items-center absolute top-0 right-0 bottom-100 left-0 bg-black bg-opacity-40 bg-gradient-to-b from-[#000D] via-transparent to-transparent z-50">
       <img
@@ -63,11 +69,24 @@ const Header = () => {
       />
       {user && (
         <div className="flex p-2">
+          {showGptPage && (
+            <select
+              className="px-2 mx-4 text-white font-semibold bg-netflixColor rounded-md"
+              onChange={handleLanguage}
+              ref={langSelect}
+            >
+              {SUPPORTED_LANG.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
           <button
             className="bg-netflixColor text-white rounded px-2 py-1 mr-4"
             onClick={handleGptSearchClick}
           >
-            {buttonName}
+            {showGptPage ? "HomePage" : "GPT Search"}
           </button>
           <img
             className="w-12 h-12"

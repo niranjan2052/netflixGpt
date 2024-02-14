@@ -18,3 +18,9 @@ export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500/";
 
 export const BG_URL =
   "https://assets.nflxext.com/ffe/siteui/vlv3/4da5d2b1-1b22-498d-90c0-4d86701dffcc/6b98821e-5cd5-4929-8212-723d7e11ffc3/NP-en-20240129-popsignuptwoweeks-perspective_alpha_website_small.jpg";
+
+export const SUPPORTED_LANG = [
+  { identifier: "en", name: "English" },
+  { identifier: "hi", name: "हिंदी" },
+  { identifier: "es", name: "española" },
+];
