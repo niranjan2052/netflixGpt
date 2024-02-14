@@ -64,7 +64,7 @@ const Header = () => {
       {user && (
         <div className="flex p-2">
           <button
-            className="bg-[#e40814] text-white rounded px-2 py-1 mr-4"
+            className="bg-netflixColor text-white rounded px-2 py-1 mr-4"
             onClick={handleGptSearchClick}
           >
             {buttonName}
@@ -76,7 +76,7 @@ const Header = () => {
           />
           <button
             onClick={handleSignOut}
-            className="px-2 text-white font-semibold bg-[#e40814]"
+            className="px-2 text-white font-semibold bg-netflixColor"
           >
             Sign Out
           </button>

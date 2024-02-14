@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import GptSearchBar from "./GptSearchBar";
+import GptMovieSuggestion from "./GptMovieSuggestion";
 
 const GptSearch = () => {
   return (
-    <div>GptSearch</div>
-  )
-}
+    <>
+      <GptSearchBar />
+      <GptMovieSuggestion />
+    </>
+  );
+};
 
-export default GptSearch
+export default GptSearch;
