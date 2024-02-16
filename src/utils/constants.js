@@ -10,7 +10,7 @@ export const API_OPTIONS = {
   headers: {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MmJlMmI5ZTUyOTdlODg5ZjFkZDkwNDk3NzIwYTY3OCIsInN1YiI6IjY1YzdhZjk5YWFkOWMyMDE3ZGI2ZWEyZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.JPgYkEnjoVxBcbmspO8-sY-iixAnlvb5z8lmO84i15I",
+      "Bearer "+process.env.REACT_APP_TMDB_API_KEY,
   },
 };
 
@@ -21,6 +21,12 @@ export const BG_URL =
 
 export const SUPPORTED_LANG = [
   { identifier: "en", name: "English" },
+  { identifier: "ne", name: "नेपाली" },
   { identifier: "hi", name: "हिंदी" },
   { identifier: "es", name: "española" },
 ];
+
+export const NO_POSTER_URL = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019";
+
+export const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
+export const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
