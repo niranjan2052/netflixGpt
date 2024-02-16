@@ -1,7 +1,11 @@
 const lang = {
     en:{
-        search:"search",
-        searchBoxPlaceholder:"What is in your mind?"
+        search:"Search",
+        searchBoxPlaceholder:"What is on your mind?"
+    },
+    ne:{
+        search:"खोज",
+        searchBoxPlaceholder:"तपाइ को मनमा के छ ?"
     },
     hi:{
         search:"खोज",
@@ -14,3 +18,4 @@ const lang = {
 };
 
 export default lang;
+
