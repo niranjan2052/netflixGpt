@@ -55,14 +55,14 @@ const GptSearchBar = () => {
   return (
     <div>
       <img
-        className="absolute max-md:max-w-none -z-10"
+        className="fixed max-md:max-w-none -z-10"
         src={BG_URL}
         alt="bg-img"
       />
       <div className="flex justify-center pt-[10%]">
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="w-1/2 grid grid-cols-12 bg-black rounded-lg"
+          className="w-full md:w-1/2 mt-40 md:mt-0 grid grid-cols-12 bg-black bg-opacity-75 rounded-lg"
         >
           <input
             ref={searchText}

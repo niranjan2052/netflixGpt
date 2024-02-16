@@ -61,14 +61,14 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between items-center absolute top-0 right-0 bottom-100 left-0 bg-black bg-opacity-40 bg-gradient-to-b from-[#000D] via-transparent to-transparent z-50">
+    <div className="flex sm:flex-col md:flex-row justify-between items-center absolute top-0 right-0 bottom-100 left-0 bg-black bg-opacity-40 bg-gradient-to-b from-[#000D] via-transparent to-transparent z-50">
       <img
-        className="drop-shadow-[0_35px_35px_rgba(255,255,255,0.5)] my-2 h-20 max-md:h-12 max-lg:h-16 mx-28 max-sm:m-auto max-sm:absolute max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:w-52 max-sm:h-24"
+        className="drop-shadow-[0_35px_35px_rgba(255,255,255,0.5)] my-2 h-20 max-md:h-12 max-lg:h-16 mx-28 max-sm:m-auto max-sm:absolute max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:w-52 max-sm:h-24 max-sm:-top-1"
         src={LOGO_URL}
         alt="logo"
       />
       {user && (
-        <div className="flex p-2">
+        <div className="flex p-2 pt-[25%] md:pt-0">
           {showGptPage && (
             <select
               className="px-2 mx-4 text-white font-semibold bg-netflixColor rounded-md"
