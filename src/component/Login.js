@@ -104,7 +104,7 @@ const Login = () => {
   return (
     <div className="max-sm:overflow-hidden">
       <Header />
-      <img className="max-md:max-w-none " src={BG_URL} alt="bg-img" />
+      <img className="h-screen object-cover md:h-fit max-md:max-w-none " src={BG_URL} alt="bg-img" />
 
       <form
         onSubmit={(e) => e.preventDefault()}

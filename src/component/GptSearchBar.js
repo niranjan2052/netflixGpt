@@ -1,10 +1,9 @@
 import React, { useRef } from "react";
-import { API_OPTIONS, BG_URL } from "../utils/constants";
 import { SearchOutlined } from "@ant-design/icons";
+import { useSelector, useDispatch } from "react-redux";
+import { API_OPTIONS, BG_URL } from "../utils/constants";
 import lang from "../utils/languageConstants";
-import { useSelector } from "react-redux";
 import genAI from "../utils/gemini";
-import { useDispatch } from "react-redux";
 import { addGptMovieResult } from "../utils/gptSlice";
 
 const GptSearchBar = () => {
@@ -55,7 +54,7 @@ const GptSearchBar = () => {
   return (
     <div>
       <img
-        className="fixed max-md:max-w-none -z-10"
+        className="fixed h-screen object-cover md:h-fit max-md:max-w-none -z-10"
         src={BG_URL}
         alt="bg-img"
       />
